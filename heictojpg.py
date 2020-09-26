@@ -1,12 +1,13 @@
 #HEIC to JPG image format batch conversion script for Python 3. Tested on Windows 10.
 #You will need to have ImageMagick installed: https://www.imagemagick.org/
 
-import os, subprocess
+import os, subprocess, sys
 
-directory = '.'
-
-for filename in os.listdir(directory):
-    if filename.lower().endswith(".heic"): 
-        print('Converting %s...' % os.path.join(directory, filename))
-        subprocess.run(["magick", "%s" % filename, "%s" % (filename[0:-5] + '.jpg')])
+files = sys.argv
+print(files[1])
+for f in files:
+    if f.lower().endswith(".heic"): 
+        print("hello3")
+        print('Converting %s...' % f)
+        subprocess.run(["magick", "%s" % f, "%s" % (f[0:-5] + '.jpg')])
         continue
